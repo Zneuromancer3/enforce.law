@@ -49,6 +49,7 @@ const StolenPost = () => {
           <div className="Post-caption">
             <strong>Quantity:</strong> {post.quantity} <br />
             <strong>Station:</strong> {post.station} <br />
+            <strong>Details:</strong> {post.details} <br />
           </div>
         </PostStyle>
       ))}

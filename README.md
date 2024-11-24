@@ -44,8 +44,8 @@ A full-stack web application for managing and tracking stolen items. It includes
 
 #### Clone the Repository
 ```bash
-git clone https://github.com/yourusername/stolen-items-management.git
-cd stolen-items-management
+git https://github.com/Zneuromancer3/enforce.law.git
+cd enforce.law
 ```
 
 #### Install Dependencies

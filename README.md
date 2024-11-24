@@ -58,7 +58,8 @@ legacy-peer-deps is set to true due to using an older version of  material-ui li
 #### Environment Variables
 Create a `.env` file in the backend directory and configure the following:
 ```env
-GEMINI_API="gemini api
+GEMINI_API="gemini api"
+MONGO_API="mongo connection link"
 ```
 
 #### Start the Backend Server

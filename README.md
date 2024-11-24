@@ -15,7 +15,7 @@ A full-stack web application for managing and tracking stolen items. It includes
 
 ### User Features:
 - **View Items**: Browse the list of stolen items on the home page.
-- **Search Items**: Filter items dynamically using the search bar.
+- **Indian Law Query**: Solves doubts based on Indian Law.
 
 ---
 
@@ -28,6 +28,7 @@ A full-stack web application for managing and tracking stolen items. It includes
 ### Backend:
 - **Node.js** with **Express**: To build RESTful APIs.
 - **MongoDB**: As the database to store item details.
+- **GEMINI**: To give answers to various Indian Law based doubts.
 
 ---
 
@@ -52,6 +53,7 @@ cd stolen-items-management
 npm config set legacy-peer-deps true
 npm install
 ```
+legacy-peer-deps is set to true due to using an older version of  material-ui library
 
 #### Environment Variables
 Create a `.env` file in the root directory and configure the following:
@@ -96,7 +98,7 @@ Base URL: `http://localhost:5000/api`
 ## Folder Structure
 
 ```
-StolenItemsWebApp/
+frontend/
 ├── src/
 │   ├── components/
 │   │   ├── header.js          # Reusable header with navigation and search bar
@@ -152,5 +154,5 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 ## Contact
 
 For feedback or inquiries:
-- **Email**: [your-email@example.com](mailto:vinuacharya2205@gmail.com@)
-- **GitHub**: [@yourusername](https://github.com/Zneuromancer3)
+- **Email**: [vinuacharya2205@gmail.com](mailto:vinuacharya2205@gmail.com@)
+- **GitHub**: [@Zneuromancer3](https://github.com/Zneuromancer3)

@@ -5,7 +5,8 @@ const app = express();
 const cors = require('cors');
 const stolenItemRoute = require("./routes/stolen.route")
 const geminiRoute = require("./routes/gemini.route");
-
+const dotenv = require('dotenv')
+dotenv.config()
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
@@ -20,7 +21,7 @@ app.get('/', (req,res) => {
 })
 
 //mongoose connection
-mongoose.connect('mongodb+srv://admin:oKyai9ImEoHazoZv@stolen-items.d6foz.mongodb.net/?retryWrites=true&w=majority&appName=Stolen-items')
+mongoose.connect(process.env.MONGO_API)
 .then(() => {
   console.log("connected to database");
   //START SERVER

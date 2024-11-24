@@ -12,7 +12,6 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 const Header = ({ role, setRole}) => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
-  
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
   };

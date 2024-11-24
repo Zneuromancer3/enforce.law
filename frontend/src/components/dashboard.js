@@ -7,13 +7,12 @@ const DashboardPage = () => {
   const [imageUrl, setImageUrl] = useState("");
   const [quantity, setQuantity] = useState(1); // Default to 1
   const [place, setPlace] = useState("");
-  const [details, setDetails] = useState(""); // New state to store details of the item
+  const [details, setDetails] = useState(""); // Details for the item
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [stolenItems, setStolenItems] = useState([]);
   const [editingItemId, setEditingItemId] = useState(null);
 
-  // Fetch the existing stolen items from the backend
   const fetchStolenItems = async () => {
     try {
       const response = await axios.get("http://localhost:5000/api/stolen-items");
@@ -24,16 +23,13 @@ const DashboardPage = () => {
     }
   };
 
-  // Call fetch function when the component mounts
   useEffect(() => {
     fetchStolenItems();
   }, []);
 
-  // Handle form submission (Add or Update item)
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate input
     if (!name || !imageUrl || !place || !details) {
       setError("All fields are required!");
       return;
@@ -44,26 +40,23 @@ const DashboardPage = () => {
       image: imageUrl,
       quantity: String(quantity), // Make sure quantity is a string
       station: place,
-      details: details, // New details field
+      details, // Include details
     };
 
     try {
       if (editingItemId) {
-        // Update the item if we are editing an existing item
         await axios.put(`http://localhost:5000/api/stolen-items/${editingItemId}`, newStolenItem);
         setSuccess("Item successfully updated!");
       } else {
-        // Add a new item if we are not editing
         await axios.post("http://localhost:5000/api/stolen-items", [newStolenItem]);
         setSuccess("Item successfully added!");
       }
 
-      // Reset the form and refresh the items
       setName("");
       setImageUrl("");
       setQuantity(1);
       setPlace("");
-      setDetails(""); // Reset the details field
+      setDetails("");
       setEditingItemId(null);
       fetchStolenItems();
     } catch (error) {
@@ -71,30 +64,42 @@ const DashboardPage = () => {
     }
   };
 
-  // Handle delete
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/api/stolen-items/${id}`);
       setSuccess("Item successfully deleted!");
-      fetchStolenItems(); // Refresh the items after delete
+      fetchStolenItems();
     } catch (error) {
       setError("Error deleting item. Please try again.");
     }
   };
 
-  // Handle editing an existing item
   const handleEdit = (item) => {
     setName(item.itemName);
     setImageUrl(item.image);
     setQuantity(item.quantity);
     setPlace(item.station);
-    setDetails(item.details); // Pre-fill the details for editing
-    setEditingItemId(item._id); // Set the id for the item being edited
+    setDetails(item.details);
+    setEditingItemId(item._id);
   };
 
   return (
-    <Box sx={{ padding: "2rem", display: "flex", justifyContent: "center" }}>
-      <Paper elevation={3} sx={{ padding: "2rem", width: "500px" }}>
+    <Box
+      sx={{
+        padding: "2rem",
+        display: "flex",
+        justifyContent: "center",
+        width: "100%",
+      }}
+    >
+      <Paper
+        elevation={3}
+        sx={{
+          padding: "2rem",
+          width: "80%", // Make the dashboard wider
+          maxWidth: "1200px", // Optional max width for responsiveness
+        }}
+      >
         <Typography variant="h4" sx={{ marginBottom: "1rem", textAlign: "center" }}>
           Admin Dashboard
         </Typography>
@@ -140,10 +145,10 @@ const DashboardPage = () => {
             variant="outlined"
             fullWidth
             margin="normal"
-            value={details}
-            onChange={(e) => setDetails(e.target.value)} // New field for item details
             multiline
-            rows={4} // Allow for multiple lines in the details field
+            rows={4}
+            value={details}
+            onChange={(e) => setDetails(e.target.value)}
           />
           <Button
             type="submit"
@@ -156,7 +161,6 @@ const DashboardPage = () => {
           </Button>
         </form>
 
-        {/* Display existing items */}
         <Typography variant="h5" sx={{ marginTop: "2rem", textAlign: "center" }}>
           Existing Items
         </Typography>
@@ -168,7 +172,7 @@ const DashboardPage = () => {
                 <img src={item.image} alt={item.itemName} style={{ width: "100%" }} />
                 <Typography variant="body2">Quantity: {item.quantity}</Typography>
                 <Typography variant="body2">Place: {item.station}</Typography>
-                <Typography variant="body2"><strong>Details:</strong> {item.details}</Typography> {/* Display the details */}
+                <Typography variant="body2">Details: {item.details}</Typography>
                 <Button
                   variant="contained"
                   color="secondary"

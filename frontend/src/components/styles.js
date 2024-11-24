@@ -99,12 +99,13 @@ export const Container = styled.div`
   height: 100vh;
   background-color: #f7f7f7;
   padding: 20px;
+  width: 100%; /* Ensure the container spans the full viewport width */
 `;
 
 // Chatbox that contains the header, messages, and input form
 export const ChatBox = styled.div`
   width: 100%;
-  max-width: 800px; /* Adjust width to fit the screen */
+  max-width: 1000px; /* Increased width for a wider chat area */
   height: 90%; /* Make the chatbox take up most of the screen */
   padding: 20px;
   background-color: white;

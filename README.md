@@ -126,25 +126,6 @@ frontend/
 
 ---
 
-## Contributing
-
-1. Fork the repository.
-2. Create a new branch:
-   ```bash
-   git checkout -b feature/your-feature
-   ```
-3. Commit your changes:
-   ```bash
-   git commit -m "Add your feature"
-   ```
-4. Push to the branch:
-   ```bash
-   git push origin feature/your-feature
-   ```
-5. Open a pull request.
-
----
-
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.

@@ -56,10 +56,9 @@ npm install
 legacy-peer-deps is set to true due to using an older version of  material-ui library
 
 #### Environment Variables
-Create a `.env` file in the root directory and configure the following:
+Create a `.env` file in the backend directory and configure the following:
 ```env
-PORT=5000
-MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/<dbname>?retryWrites=true&w=majority
+GEMINI_API="gemini api
 ```
 
 #### Start the Backend Server
@@ -110,8 +109,7 @@ frontend/
 ├── public/
 │   └── index.html             # Root HTML file
 ├── package.json               # Project dependencies
-├── README.md                  # Documentation
-└── .env                       # Environment variables
+└── README.md                  # Documentation
 ```
 
 ---
